@@ -6,6 +6,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Set env
-      run: echo "v-0.0.15" >> $env:APP_VERSION
+      run: echo "APP_VERSION=v-0.0.15" >> $env:GITHUB_ENV
     - name: Test
       run: echo $APP_VERSION
