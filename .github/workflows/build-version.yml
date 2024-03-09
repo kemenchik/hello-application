@@ -4,9 +4,10 @@ jobs:
   build:
     environment: test
     runs-on: ubuntu-latest
+    env:
+      APP_VERSION: ${{ vars.APP_VERSION }}
     steps:
     - uses: actions/checkout@v2
-    
     - name: Echo env
       run: echo "$APP_VERSION"
     - name: Set env
