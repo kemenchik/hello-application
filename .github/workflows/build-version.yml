@@ -2,10 +2,14 @@ name: Set Version
 on: push
 jobs:
   build:
+    environment: test
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    
+    - name: Echo env
+      run: echo "$APP_VERSION"
     - name: Set env
-      run: echo "APP_VERSION=v-0.0.15" >> $env:GITHUB_ENV
+      run: echo "APP_VERSION=v-0.0.20" >> $env:APP_VERSION
     - name: Test
       run: echo $APP_VERSION
