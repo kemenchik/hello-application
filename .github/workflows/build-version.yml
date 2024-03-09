@@ -8,9 +8,11 @@ jobs:
       APP_VERSION: ${{ vars.APP_VERSION }}
     steps:
     - uses: actions/checkout@v2
-    - name: Echo env
-      run: echo "$APP_VERSION"
+    - name: Echo env before
+      run: echo $APP_VERSION
     - name: Set env
       run: echo "APP_VERSION=v-0.0.20" >> $env:APP_VERSION
-    - name: Test
+    - name: teetet
+      run: echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-6)" >> $env:GITHUB_ENV
+    - name: Echo env after
       run: echo $APP_VERSION
