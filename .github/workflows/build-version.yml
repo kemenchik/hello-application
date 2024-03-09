@@ -1,0 +1,11 @@
+name: Set Version
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set env
+      run: echo "v-0.0.15" >> $APP_VERSION
+    - name: Test
+      run: echo $APP_VERSION
